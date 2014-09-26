@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html id = "b">
+
+<head>
+<title>ganesan</title>
+<link rel="stylesheet" type="text/css" href="/../stylesheets/site.css">
+<script type="text/javascript" src="../javascripts/application.js"></script>
+</head>
+
+<body>
+<div id="s">
+
+<%= form_for @sampleform do |f| %>
+ <% if @sampleform.errors.any? %>
+  <div >
+    <h2><%= pluralize(@sampleform.errors.count, "error") %> prohibited
+      this article from being saved:</h2>
+    <ul>
+    <% @sampleform.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<p>
+<%= f.label :firstname %><br>
+<%= f.text_field :firstname %>
+</p>
+
+<p>
+<%= f.label :lastname %><br>
+<%= f.text_field :lastname %>
+</p>
+
+<p>
+<%= f.label :email %><br>
+<%= f.email_field :email %>
+</p>
+
+<p>
+<%= f.label :password %><br>
+<%= f.password_field :password %>
+</p>
+
+<p>
+<%= f.label :Confirmpassword %><br>
+<%= f.password_field :confirm_password %>
+</p>
+
+<p>
+<%= f.label :gender %>
+<%= f.radio_button :gender,'Male',:checked =>true %>Male
+<%= f.radio_button :gender,'FeMale'%>FeMale
+</p>
+
+<p>
+<%= f.label :address %><br>
+<%= f.text_area :address, :cols => '39', :rows => '7' %>
+</p>
+
+<p>
+<%= f.label :country %>
+<%= f.select :country,["India","USA"] %>
+</p>
+
+<p>
+<%= f.file_field :images %>
+</p>
+
+<%= f.submit "submit" %>
+<%= link_to 'Back',sampleforms_path %>
+<% end %>
+
+
+
+</div>
+
+</body>
+
+</html>

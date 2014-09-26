@@ -1,0 +1,50 @@
+#in
+{
+	margin-left:3px;
+}
+
+
+
+input 
+{
+	color: blue;
+	
+	padding:200;
+}
+#s
+{
+	float: center;
+	margin: 0 auto;
+	/*background-color: yellow;*/
+	margin-left: 330px;
+	width:500px;
+	padding:0px 10px 10px 10px;
+}
+#a
+{
+	margin-left: 340px;
+	color: green;
+}
+#b
+{
+	background-color: Chocolate;
+}
+h2
+{
+	color:red;
+}
+li
+{
+	color:red;
+}
+img
+{
+	height: 30px;
+	background-color: Lightgray;
+	
+}
+table
+{
+	background-color: Lightgray;
+	 margin: 0 auto;
+}

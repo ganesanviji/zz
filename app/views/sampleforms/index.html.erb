@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html id ="b">
+
+<head>
+<title>ganesan</title>
+<link rel="stylesheet" type="text/css" href="/../stylesheets/site.css">
+
+</head>
+
+<body>
+
+<%= link_to image_tag("Create.png"),new_sampleform_path %>
+
+<%= form_tag sampleforms_path, :method => 'get'  do  %>
+
+<p>
+<%= text_field_tag :search %>
+<%= submit_tag "search" %>
+</p>
+
+<% end %>
+
+<table border 1px solid>
+	<tr>
+	  
+	  <th>ID</th>
+	  <th>Firstname</th>
+	  <th>Lastname</th>
+	  <th>Email</th>
+	  <th>Gender</th>
+	  <th>Address</th>
+	  <th>Country</th>
+	  <th>images</th>
+	  <th>Action</th>
+	</tr>
+
+<% @sampleforms.each do |sampleform| %>
+    <tr>
+    	   	
+		   <td><%= sampleform.id %></td>
+		   <td><%= sampleform.firstname %></td>
+		   <td><%= sampleform.lastname %></td>
+		   <td><%= sampleform.email %></td>
+		   <td><%= sampleform.gender %></td>
+		   <td><%= sampleform.address %></td>
+		   <td><%= sampleform.country %></td>
+		   <td><%= image_tag sampleform.images %></td>
+
+		   <td>
+		   
+		      <%= link_to image_tag("Edit.png"), edit_sampleform_path(sampleform) %>
+		      <%= link_to image_tag("Delete.png"),sampleform,
+		    data: {:confirm => "Are You Sure ?"}, method: :delete %>
+		    
+		   </td>
+
+     </tr>
+<% end %>
+</table>
+</body>
+</html>
