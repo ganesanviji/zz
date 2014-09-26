@@ -35,17 +35,18 @@
 
 <p>
 <%= f.label :email %><br>
-<%= f.email_field :email %>
+<%= f.email_field :email,autofocus: true%>
 </p>
 
 <p>
 <%= f.label :password %><br>
-<%= f.password_field :password %>
+<% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+<%= f.password_field :password,autocomplete: "off" %>
 </p>
 
 <p>
 <%= f.label :Confirmpassword %><br>
-<%= f.password_field :confirm_password %>
+<%= f.password_field :confirm_password,autocomplete: "off" %>
 </p>
 
 <p>

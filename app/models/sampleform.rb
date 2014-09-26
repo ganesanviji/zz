@@ -13,8 +13,11 @@ class Sampleform < ActiveRecord::Base
     validates_exclusion_of :password, in: ->(sampleform) { [sampleform.firstname] },
                          message: 'should not be the same as your first name'
 
-def self.search(search_id)
-  return scoped unless search_id.present?
-  find(:all, :conditions => ['id LIKE ?', "%#{search_id}%"])
+def self.search(search)
+  if search 
+      find(:all, :conditions => ['id LIKE ?', "%#{search_id}%"])
+  else
+      find(:all)
+    end
 end	 
 end
