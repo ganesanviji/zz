@@ -2,16 +2,13 @@
 
 
 
-<%= form_tag sampleforms_path, :method => 'get'  do  %>
+<%= form_tag s1s_path, :method => 'get'  do  %>
 
 <p>
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag "search" %>
-<% if params[:search].present? %>
-	<% link_to "clear" sampleforms_path %>
-	<% end %>	 
 </p>
-<% render @sampleforms %>
+<% render @sampleforms
 <% end %>
 
 <table border 1px solid>
@@ -28,7 +25,7 @@
 	  
 	</tr>
 
-<% @sampleform.each do |sampleform| %>
+<% @s1.each do |sampleform| %>
     <tr>
     	   	
 		   <td><%= sampleform.id %></td>
@@ -45,5 +42,3 @@
      </tr>
 <% end %>
 </table>
-
-

@@ -5,7 +5,7 @@
 <title>ganesan</title>
 <link rel="stylesheet" type="text/css" href="/../stylesheets/site.css">
 <script type="text/javascript" src="../javascripts/application.js"></script>
-</head>
+</head> 
 
 <body>
 <div id="s">
@@ -40,7 +40,6 @@
 
 <p>
 <%= f.label :password %><br>
-<% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
 <%= f.password_field :password,autocomplete: "off" %>
 </p>
 
@@ -76,7 +75,7 @@
 
 
 </div>
-
+<% render "shared/links" %>
 </body>
 
 </html>

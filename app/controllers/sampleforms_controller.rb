@@ -1,24 +1,26 @@
 class SampleformsController < ApplicationController
+	
+
 	def index
-		@sampleforms = Sampleform.all
+		if params[:search].present?
+			@sampleforms =Sampleform.search(params[:search])
+		else
+			@sampleforms =Sampleform.all
+		end
 	end
 
     def show
-		@sampleform = Sampleform.find(params[:find_by_id])
+		@sampleforms =Sampleform.all
 	end  
-
 	
-	def search
-  		@sampleform = Sampleform.search params[:search]
-	end
-    
-    	
 	def destroy
 	 	@sampleform = Sampleform.find(params[:id])
 		 	if @sampleform.destroy	
 		 		redirect_to sampleforms_path
 		 	end
-	end	 
+	end	
+
+	
 
 	def new
 		@sampleform = Sampleform.new
@@ -41,7 +43,7 @@ class SampleformsController < ApplicationController
 	
 	def update
 		@sampleform = Sampleform.find(params[:id])
-		    
+		    @sampleform.images = params[:images]
 			if @sampleform.update(sampleform_params)
 				redirect_to sampleforms_path
 			else
@@ -51,9 +53,9 @@ class SampleformsController < ApplicationController
 
 		private
   		def sampleform_params
-    		params.require(:sampleform).permit(:firstname, :lastname, :email, :password, :confirm_passwrd, :salt, :encrypted_password, :gender, :address, :country, :images)
+    		params.require(:sampleform).permit(:firstname, :lastname, :email, :password, :confirm_passwrd, :gender, :address, :country, :images)
   		end
-
+    
     
   		
 end
